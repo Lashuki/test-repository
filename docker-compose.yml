@@ -1,0 +1,18 @@
+version: "3.9"
+services:
+  app1:
+    container_name: app1
+    image: dockerversion:0.1
+    build: .
+    depends_on:
+      - database
+    
+  app2:
+    container_name: app2
+    image: hello-world
+    depends_on:
+       - database
+     
+  database:
+    container_name: db
+    image: postgres
